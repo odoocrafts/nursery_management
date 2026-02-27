@@ -7,8 +7,17 @@
             <form string="Student">
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="action_view_reports" type="object" class="oe_stat_button" icon="fa-list-alt">
-                            <field name="report_count" widget="statinfo" string="Reports"/>
+                        <button name="action_view_reports" type="object" class="oe_stat_button" icon="fa-file-text-o">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value"><field name="report_count"/></span>
+                                <span class="o_stat_text">Reports</span>
+                            </div>
+                        </button>
+                        <button name="action_view_attendance" type="object" class="oe_stat_button" icon="fa-calendar-check-o">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value"><field name="attendance_count"/></span>
+                                <span class="o_stat_text">Attendance</span>
+                            </div>
                         </button>
                         <button name="action_view_fees" type="object" class="oe_stat_button" icon="fa-money">
                             <div class="o_stat_info">

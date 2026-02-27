@@ -53,6 +53,22 @@ class NurseryStudent(models.Model):
             
             student.total_due = total_payable - student.total_paid
 
+    def _compute_report_count(self):
+        for student in self:
+            student.report_count = self.env['nursery.daily.report'].search_count([('student_id', '=', student.id)])
+
+    # --- Smart Button Actions ---
+    def action_view_reports(self):
+        self.ensure_one()
+        return {
+            'name': 'Daily Reports',
+            'type': 'ir.actions.act_window',
+            'res_model': 'nursery.daily.report',
+            'view_mode': 'list,form,graph',
+            'domain': [('student_id', '=', self.id)],
+            'context': {'default_student_id': self.id},
+        }
+        
     def action_view_fees(self):
         self.ensure_one()
         return {
@@ -64,17 +80,20 @@ class NurseryStudent(models.Model):
             'context': {'default_student_id': self.id},
         }
 
-    def _compute_report_count(self):
-        for student in self:
-            student.report_count = self.env['nursery.daily.report'].search_count([('student_id', '=', student.id)])
+    # --- Attendance ---
+    attendance_count = fields.Integer(string="Attendance Records", compute='_compute_attendance_count')
 
-    def action_view_reports(self):
+    def _compute_attendance_count(self):
+        for student in self:
+            student.attendance_count = self.env['nursery.attendance'].search_count([('student_id', '=', student.id)])
+
+    def action_view_attendance(self):
         self.ensure_one()
         return {
-            'name': 'Daily Reports',
+            'name': 'Attendance',
             'type': 'ir.actions.act_window',
-            'res_model': 'nursery.daily.report',
-            'view_mode': 'list,form,graph',
+            'res_model': 'nursery.attendance',
+            'view_mode': 'list,form',
             'domain': [('student_id', '=', self.id)],
             'context': {'default_student_id': self.id},
         }

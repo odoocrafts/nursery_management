@@ -20,6 +20,7 @@
         'views/student_views.xml',
         'views/daily_report_views.xml',
         'views/fee_views.xml',
+        'views/attendance_views.xml',
         'report/nursery_reports.xml',
         'report/daily_report_template.xml',
     ],

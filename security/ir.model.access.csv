@@ -4,3 +4,4 @@ access_nursery_student,nursery.student,model_nursery_student,base.group_user,1,1
 access_nursery_daily_report,nursery.daily.report,model_nursery_daily_report,base.group_user,1,1,1,1
 access_nursery_fee,nursery.fee,model_nursery_fee,base.group_user,1,1,1,1
 access_nursery_fee_type,nursery.fee.type,model_nursery_fee_type,base.group_user,1,1,1,1
+access_nursery_attendance,nursery.attendance,model_nursery_attendance,base.group_user,1,1,1,1
