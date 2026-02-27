@@ -56,6 +56,7 @@ class ReportAttendancePDF(models.AbstractModel):
         return {
             'doc_ids': docids,
             'doc_model': 'nursery.attendance.report.wizard',
+            'docs': self.env['nursery.attendance.report.wizard'].browse(docids),
             'data': form,
             'date_from': date_from,
             'date_to': date_to,
