@@ -5,3 +5,5 @@ access_nursery_daily_report,nursery.daily.report,model_nursery_daily_report,base
 access_nursery_fee,nursery.fee,model_nursery_fee,base.group_user,1,1,1,1
 access_nursery_fee_type,nursery.fee.type,model_nursery_fee_type,base.group_user,1,1,1,1
 access_nursery_attendance,nursery.attendance,model_nursery_attendance,base.group_user,1,1,1,1
+access_nursery_attendance_wizard,nursery.attendance.wizard,model_nursery_attendance_wizard,base.group_user,1,1,1,1
+access_nursery_attendance_wizard_line,nursery.attendance.wizard.line,model_nursery_attendance_wizard_line,base.group_user,1,1,1,1

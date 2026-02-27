@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Wizard Form View -->
+    <record id="view_nursery_attendance_wizard_form" model="ir.ui.view">
+        <field name="name">nursery.attendance.wizard.form</field>
+        <field name="model">nursery.attendance.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Class Attendance">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="class_id" options="{'no_create': True}"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                        </group>
+                    </group>
+                    <notebook invisible="not class_id">
+                        <page string="Students">
+                            <field name="line_ids">
+                                <list editable="bottom" create="0" delete="0">
+                                    <field name="student_id" readonly="1" force_save="1"/>
+                                    <field name="is_present" widget="boolean_toggle"/>
+                                    <field name="notes"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button string="Submit" name="action_submit_attendance" type="object" class="btn-primary" data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="x"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_nursery_attendance_wizard" model="ir.actions.act_window">
+        <field name="name">Class Attendance</field>
+        <field name="res_model">nursery.attendance.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
