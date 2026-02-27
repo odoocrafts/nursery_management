@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_nursery_class,nursery.class,model_nursery_class,base.group_user,1,1,1,1
+access_nursery_student,nursery.student,model_nursery_student,base.group_user,1,1,1,1
+access_nursery_daily_report,nursery.daily.report,model_nursery_daily_report,base.group_user,1,1,1,1
+access_nursery_fee,nursery.fee,model_nursery_fee,base.group_user,1,1,1,1
+access_nursery_fee_type,nursery.fee.type,model_nursery_fee_type,base.group_user,1,1,1,1

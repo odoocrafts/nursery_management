@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_daily_communication_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <style>
+                            .main-table { width: 100%; border-collapse: collapse; border: 1px solid black; }
+                            .main-table td, .main-table th { border: 1px solid black; padding: 4px; } /* Reduced padding from 8px to 4px */
+                            .header-cell { background-color: #f0f0f0; font-weight: bold; text-align: center; }
+                            .content-cell { text-align: center; }
+                            .section-header { background-color: #e0e0e0; font-weight: bold; text-align: center; padding: 5px; } /* Reduced padding */
+                            .left-align { text-align: left; }
+                        </style>
+
+                        <table class="main-table">
+                            <!-- Title -->
+                            <tr>
+                                <td colspan="2" class="header-cell" style="font-size: 18px; padding: 10px;">
+                                    Daily Parent Communication Report
+                                </td>
+                            </tr>
+                            
+                            <!-- Administrative Details -->
+                            <tr>
+                                <td colspan="2">
+                                    <table style="width: 100%; border: none;">
+                                        <tr>
+                                            <td style="border: none; text-align: left; padding: 5px;">
+                                                <strong>Date:</strong> <span t-field="o.date"/><br/>
+                                                <strong>Student Name:</strong> <span t-field="o.student_id.name"/><br/>
+                                                <strong>Age:</strong> <span t-field="o.student_id.age"/>
+                                            </td>
+                                            <td style="border: none; text-align: right; padding: 5px;">
+                                                <strong>Class:</strong> <span t-field="o.class_id.name"/><br/>
+                                                <strong>Shift:</strong> <span t-field="o.student_id.shift"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <!-- Section Header -->
+                            <tr>
+                                <td colspan="2" class="section-header">Routine &amp; Engagement</td>
+                            </tr>
+
+                            <!-- Routine Table Headers -->
+                            <tr>
+                                <th class="header-cell">Activity / Status</th>
+                                <th class="header-cell">Observation</th>
+                            </tr>
+
+                            <!-- Routine Rows -->
+                            <tr><td class="left-align">Handwashing</td><td class="content-cell"><span t-field="o.handwashing"/></td></tr>
+                            <tr><td class="left-align">Settling Down in Class</td><td class="content-cell"><span t-field="o.settled_down"/></td></tr>
+                            <tr><td class="left-align">Engagement in Class</td><td class="content-cell"><span t-field="o.engagement"/></td></tr>
+                            <tr><td class="left-align">Mood in Class</td><td class="content-cell"><span t-field="o.mood_class"/></td></tr>
+                            <tr><td class="left-align">Mood in Play Area</td><td class="content-cell"><span t-field="o.mood_play"/></td></tr>
+                            <tr><td class="left-align">Sleep Duration</td><td class="content-cell"><span t-esc="o.sleep_duration"/> Hours</td></tr>
+                            <tr><td class="left-align">Water Consumed</td><td class="content-cell"><span t-field="o.water_consumed"/></td></tr>
+                            <tr><td class="left-align">Breakfast Status</td><td class="content-cell"><span t-field="o.breakfast_status"/></td></tr>
+                            <tr><td class="left-align">Lunch Status</td><td class="content-cell"><span t-field="o.lunch_status"/></td></tr>
+                            <tr><td class="left-align">Snack Status</td><td class="content-cell"><span t-field="o.snack_status"/></td></tr>
+                            <tr><td class="left-align">Urine Count</td><td class="content-cell"><span t-field="o.urine_count"/></td></tr>
+
+                            <!-- Remarks Section -->
+                            <tr>
+                                <td colspan="2" class="section-header">Learning &amp; Activity Remarks</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding: 10px; text-align: left;">
+                                    <span t-field="o.remarks"/>
+                                </td>
+                            </tr>
+
+                            <!-- Activity Photo -->
+                            <tr t-if="o.activity_image" style="page-break-inside: avoid;">
+                                <td colspan="2" style="padding: 0;">
+                                    <div class="section-header" style="border-bottom: 1px solid black;">Activity Photo</div>
+                                    <div class="content-cell" style="padding: 5px;">
+                                        <img t-att-src="image_data_uri(o.activity_image)" style="max-height: 200px; max-width: 100%;"/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

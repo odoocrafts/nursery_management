@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_nursery_root" name="Nursery" sequence="10"/>
+
+    <menuitem id="menu_nursery_student_root" name="Students" parent="menu_nursery_root" sequence="10"/>
+    <menuitem id="menu_nursery_daily_report_root" name="Reports" parent="menu_nursery_root" sequence="20"/>
+    <menuitem id="menu_nursery_configuration_root" name="Configuration" parent="menu_nursery_root" sequence="30"/>
+</odoo>
