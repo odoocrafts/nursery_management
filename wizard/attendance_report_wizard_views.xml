@@ -35,7 +35,7 @@
 
     <menuitem id="menu_nursery_attendance_report_wizard" 
               name="Class Attendance Report" 
-              parent="menu_nursery_reports" 
+              parent="menu_nursery_daily_report_root" 
               action="action_nursery_attendance_report_wizard" 
               sequence="20"/>
 </odoo>
