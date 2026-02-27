@@ -42,4 +42,11 @@
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_nursery_class_attendance_wizard" 
+              name="Class Attendance" 
+              parent="nursery_management.menu_nursery_attendance_root" 
+              action="action_nursery_attendance_wizard" 
+              sequence="10"/>
 </odoo>

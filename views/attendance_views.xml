@@ -79,12 +79,6 @@
               parent="menu_nursery_root" 
               sequence="20"/>
 
-    <menuitem id="menu_nursery_class_attendance_wizard" 
-              name="Class Attendance" 
-              parent="menu_nursery_attendance_root" 
-              action="action_nursery_attendance_wizard" 
-              sequence="10"/>
-
     <menuitem id="menu_nursery_attendance_records" 
               name="Attendance Records" 
               parent="menu_nursery_attendance_root" 
