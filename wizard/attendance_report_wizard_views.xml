@@ -19,7 +19,7 @@
                     </group>
                 </sheet>
                 <footer>
-                    <button name="action_print_report" string="Print Print" type="object" class="btn-primary" data-hotkey="q"/>
+                    <button name="action_print_report" string="Print" type="object" class="btn-primary" data-hotkey="q"/>
                     <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="x"/>
                 </footer>
             </form>
