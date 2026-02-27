@@ -7,3 +7,4 @@ access_nursery_fee_type,nursery.fee.type,model_nursery_fee_type,base.group_user,
 access_nursery_attendance,nursery.attendance,model_nursery_attendance,base.group_user,1,1,1,1
 access_nursery_attendance_wizard,nursery.attendance.wizard,model_nursery_attendance_wizard,base.group_user,1,1,1,1
 access_nursery_attendance_wizard_line,nursery.attendance.wizard.line,model_nursery_attendance_wizard_line,base.group_user,1,1,1,1
+access_nursery_attendance_report_wizard,nursery.attendance.report.wizard,model_nursery_attendance_report_wizard,base.group_user,1,1,1,1

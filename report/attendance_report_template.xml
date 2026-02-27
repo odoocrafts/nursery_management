@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Paper Format (Optional to make it landscape if many dates) -->
+    <record id="paperformat_nursery_attendance" model="report.paperformat">
+        <field name="name">Nursery Attendance Landscape</field>
+        <field name="default" eval="True" />
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">10</field>
+        <field name="margin_bottom">10</field>
+        <field name="margin_left">10</field>
+        <field name="margin_right">10</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">5</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <!-- Report Action -->
+    <record id="action_report_nursery_attendance" model="ir.actions.report">
+        <field name="name">Attendance Report</field>
+        <field name="model">nursery.attendance.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">nursery_management.report_attendance_pdf</field>
+        <field name="report_file">nursery_management.report_attendance_pdf</field>
+        <field name="print_report_name">'Attendance Report - %s to %s' % (object.date_from, object.date_to)</field>
+        <field name="binding_model_id" ref="model_nursery_attendance_report_wizard"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="paperformat_nursery_attendance"/>
+    </record>
+
+    <!-- Template -->
+    <template id="report_attendance_pdf">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2 class="text-center">Class Attendance Report</h2>
+                    <h4 class="text-center text-muted">
+                        From: <span t-esc="date_from.strftime('%d %b %Y')"/> - To: <span t-esc="date_to.strftime('%d %b %Y')"/>
+                    </h4>
+                    
+                    <t t-if="not attendance_data">
+                        <div class="alert alert-warning text-center mt-4">
+                            No students found for the selected criteria.
+                        </div>
+                    </t>
+
+                    <t t-foreach="attendance_data.keys()" t-as="class_name">
+                        <div class="mt-4 mb-2">
+                            <h3>Class: <span t-esc="class_name"/></h3>
+                        </div>
+                        
+                        <table class="table table-sm table-bordered">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th style="width: 200px;">Student Name</th>
+                                    <t t-foreach="date_list" t-as="dt">
+                                        <th class="text-center" style="font-size: 10px; width: 30px;">
+                                            <span t-esc="dt.strftime('%d/%m')"/>
+                                        </th>
+                                    </t>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="attendance_data[class_name]" t-as="student_record">
+                                    <tr>
+                                        <td><strong><span t-esc="student_record['student']"/></strong></td>
+                                        <t t-foreach="student_record['attendance']" t-as="status">
+                                            <td class="text-center font-weight-bold" t-att-style="
+                                                'color: green;' if status == 'P' else 
+                                                ('color: red;' if status == 'A' else 
+                                                ('color: orange;' if status == 'L' else 'color: grey;'))
+                                            ">
+                                                <span t-esc="status"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </t>
+                    
+                    <!-- Legend -->
+                    <div class="mt-4" style="font-size: 12px;">
+                        <strong>Legend: </strong>
+                        <span style="color: green; font-weight: bold; margin-right: 15px;">P: Present</span>
+                        <span style="color: red; font-weight: bold; margin-right: 15px;">A: Absent</span>
+                        <span style="color: orange; font-weight: bold; margin-right: 15px;">L: Leave</span>
+                        <span style="color: grey; font-weight: bold;">-: Unmarked</span>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>
