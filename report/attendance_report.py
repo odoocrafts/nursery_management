@@ -1,4 +1,4 @@
-from odoo import models, api
+from odoo import models, fields, api
 from datetime import timedelta
 
 class ReportAttendancePDF(models.AbstractModel):
