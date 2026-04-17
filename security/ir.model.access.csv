@@ -8,3 +8,10 @@ access_nursery_attendance,nursery.attendance,model_nursery_attendance,base.group
 access_nursery_attendance_wizard,nursery.attendance.wizard,model_nursery_attendance_wizard,base.group_user,1,1,1,1
 access_nursery_attendance_wizard_line,nursery.attendance.wizard.line,model_nursery_attendance_wizard_line,base.group_user,1,1,1,1
 access_nursery_attendance_report_wizard,nursery.attendance.report.wizard,model_nursery_attendance_report_wizard,base.group_user,1,1,1,1
+access_nursery_checkin_user,nursery.checkin,model_nursery_checkin,base.group_user,1,1,1,1
+access_nursery_event_user,nursery.event,model_nursery_event,base.group_user,1,1,1,1
+access_nursery_event_portal,nursery.event,model_nursery_event,base.group_portal,1,0,0,0
+access_nursery_suggestion_user,nursery.suggestion,model_nursery_suggestion,base.group_user,1,1,1,1
+access_nursery_suggestion_portal,nursery.suggestion,model_nursery_suggestion,base.group_portal,1,0,1,0
+access_nursery_student_portal,nursery.student,model_nursery_student,base.group_portal,1,0,0,0
+access_nursery_daily_report_portal,nursery.daily.report,model_nursery_daily_report,base.group_portal,1,0,0,0

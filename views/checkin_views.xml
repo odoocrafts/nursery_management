@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_nursery_checkin_tree" model="ir.ui.view">
+        <field name="name">nursery.checkin.tree</field>
+        <field name="model">nursery.checkin</field>
+        <field name="arch" type="xml">
+            <tree string="📸 Check-Ins" decoration-success="checkout_time != False">
+                <field name="student_id"/>
+                <field name="checkin_time"/>
+                <field name="checkout_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_nursery_checkin_form" model="ir.ui.view">
+        <field name="name">nursery.checkin.form</field>
+        <field name="model">nursery.checkin</field>
+        <field name="arch" type="xml">
+            <form string="📸 Check-In Details">
+                <sheet>
+                    <group>
+                        <group string="Student Info">
+                            <field name="student_id"/>
+                        </group>
+                        <group string="Timings">
+                            <field name="checkin_time"/>
+                            <field name="checkout_time"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Arrival">
+                            <field name="checkin_snapshot" widget="image" options="{'size': [300, 300]}"/>
+                        </group>
+                        <group string="Dispersal">
+                            <field name="checkout_snapshot" widget="image" options="{'size': [300, 300]}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_nursery_checkin" model="ir.actions.act_window">
+        <field name="name">📸 Check-Ins</field>
+        <field name="res_model">nursery.checkin</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

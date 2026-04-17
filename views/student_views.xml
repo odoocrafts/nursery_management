@@ -4,7 +4,7 @@
         <field name="name">nursery.student.form</field>
         <field name="model">nursery.student</field>
         <field name="arch" type="xml">
-            <form string="Student">
+            <form string="👶 Student">
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="action_view_reports" type="object" class="oe_stat_button" icon="fa-file-text-o">
@@ -33,12 +33,12 @@
                         </h1>
                     </div>
                     <group>
-                        <group string="Personal Details">
+                        <group string="🆔 Personal Details">
                             <field name="dob"/>
                             <field name="age"/>
                             <field name="gender"/>
                         </group>
-                        <group string="School Details">
+                        <group string="🏫 School Details">
                             <field name="class_id"/>
                             <field name="shift"/>
                             <field name="admission_date"/>
@@ -55,7 +55,7 @@
         <field name="name">nursery.student.tree</field>
         <field name="model">nursery.student</field>
         <field name="arch" type="xml">
-            <list string="Students">
+            <list string="🎒 Students">
                 <field name="name"/>
                 <field name="age"/>
                 <field name="gender"/>
@@ -66,10 +66,10 @@
     </record>
 
     <record id="action_nursery_student" model="ir.actions.act_window">
-        <field name="name">Students</field>
+        <field name="name">🎒 Students</field>
         <field name="res_model">nursery.student</field>
         <field name="view_mode">list,form</field>
     </record>
 
-    <menuitem id="menu_nursery_student" name="Students" parent="menu_nursery_student_root" action="action_nursery_student" sequence="10"/>
+    <menuitem id="menu_nursery_student" name="🎒 Students" parent="menu_nursery_student_root" action="action_nursery_student" sequence="10"/>
 </odoo>

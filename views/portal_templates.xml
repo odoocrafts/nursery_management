@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add to Portal Dashboard -->
+    <template id="portal_my_home_nursery" name="Show Nursery Info" customize_show="True" inherit_id="portal.portal_my_home" priority="40">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">👶 My Children</t>
+                <t t-set="url" t-value="'/my/students'"/>
+                <t t-set="placeholder_count" t-value="'student_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">🎈 Events</t>
+                <t t-set="url" t-value="'/my/events'"/>
+                <t t-set="placeholder_count" t-value="'event_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">💡 Suggestions</t>
+                <t t-set="url" t-value="'/my/suggestions'"/>
+                <t t-set="placeholder_count" t-value="'suggestion_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Students List -->
+    <template id="portal_my_students" name="My Children">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Children</t>
+            </t>
+            <div t-if="not students" class="alert alert-warning mt8" role="alert">
+                There are no students linked to your account.
+            </div>
+            <div t-if="students" class="table-responsive">
+                <table class="table table-hover bg-white mb-0">
+                    <thead>
+                        <tr class="active">
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>DOB</th>
+                            <th class="text-end">Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="students" t-as="student">
+                            <tr>
+                                <td>
+                                    <a t-attf-href="/my/students/#{student.id}">
+                                        <span t-field="student.name"/>
+                                    </a>
+                                </td>
+                                <td><span t-field="student.class_id"/></td>
+                                <td><span t-field="student.dob"/></td>
+                                <td class="text-end">
+                                    <a class="btn btn-sm btn-primary" t-attf-href="/my/students/#{student.id}">View</a>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <!-- Student Detail (with Chatter) -->
+    <template id="portal_student_detail" name="Student Details">
+        <t t-call="portal.portal_layout">
+            <t t-set="wrapwrap_classes" t-value="'o_portal_bg_dark'"/>
+            <div class="row mt16">
+                <div class="col-12">
+                    <div class="card mb-3 border border-primary shadow-sm rounded">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="mb-0">👶 <t t-esc="student.name"/></h3>
+                        </div>
+                        <div class="card-body bg-light">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <div t-if="student.image" class="me-3">
+                                            <img t-att-src="image_data_uri(student.image)" class="img img-fluid rounded border border-secondary shadow" style="max-height: 120px;"/>
+                                        </div>
+                                        <div class="fs-5">
+                                            <strong>🏫 Class:</strong> <span class="badge bg-info text-dark ms-1" t-field="student.class_id"/><br/>
+                                            <strong>🎂 Age:</strong> <span class="ms-1" t-field="student.age"/><br/>
+                                            <strong>⚧ Gender:</strong> <span class="ms-1" t-field="student.gender"/><br/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chatter -->
+                    <div id="student_chatter" class="mt-4 p-3 bg-white rounded shadow-sm border border-light">
+                        <h4>💬 Communication</h4>
+                        <hr/>
+                        <t t-call="portal.message_thread">
+                            <t t-set="object" t-value="student"/>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Events List -->
+    <template id="portal_my_events" name="Nursery Events">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Events</t>
+            </t>
+            <div t-if="not events" class="alert alert-info mt8" role="alert">
+                No events currently scheduled.
+            </div>
+            <div t-if="events" class="row mt-3">
+                <t t-foreach="events" t-as="ev">
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100 border-info shadow-lg rounded-3 border-top border-4">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0">🎈 <span t-field="ev.name"/></h5>
+                            </div>
+                            <div class="card-body bg-light">
+                                <p class="card-text fs-6">
+                                    <strong>📍 Venue:</strong> <span class="text-primary" t-field="ev.venue"/><br/>
+                                    <strong>🕒 Start:</strong> <span t-field="ev.date_start"/><br/>
+                                    <strong>🏁 End:</strong> <span t-field="ev.date_end"/>
+                                </p>
+                                <p class="card-text text-muted mt-2 border-top pt-2" t-field="ev.description"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <!-- Suggestions List -->
+    <template id="portal_my_suggestions" name="My Suggestions">
+        <t t-call="portal.portal_layout">
+            <div class="d-flex justify-content-between align-items-center mb-4 mt-3">
+                <h3 class="text-primary">💡 My Suggestions</h3>
+                <a href="/my/suggestion/submit" class="btn btn-primary rounded-pill shadow-sm px-4">Submit New Suggestion</a>
+            </div>
+            <div t-if="not suggestions" class="alert alert-info mt8" role="alert">
+                You haven't submitted any suggestions.
+            </div>
+            <div t-if="suggestions" class="table-responsive shadow-sm rounded bg-white p-2">
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Subject</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="suggestions" t-as="sugg">
+                            <tr>
+                                <td><strong t-field="sugg.name"/></td>
+                                <td>
+                                    <span t-attf-class="badge rounded-pill #{'bg-success' if sugg.state == 'reviewed' else 'bg-secondary'} px-3 py-2">
+                                        <t t-esc="dict(sugg.fields_get(allfields=['state'])['state']['selection']).get(sugg.state)"/>
+                                    </span>
+                                </td>
+                                <td><span class="text-muted" t-field="sugg.create_date" t-options="{'widget': 'date'}"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <!-- Submit Suggestion Form -->
+    <template id="portal_submit_suggestion" name="Submit Suggestion">
+        <t t-call="portal.portal_layout">
+            <div class="row mt-4">
+                <div class="col-md-8 mx-auto">
+                    <div class="card shadow-lg rounded-3 border-0">
+                        <div class="card-header bg-primary text-white rounded-top-3">
+                            <h4 class="mb-0">💡 Submit a Suggestion</h4>
+                        </div>
+                        <div class="card-body bg-light p-4">
+                            <form action="/my/suggestion/submit" method="post">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <div class="mb-4">
+                                    <label for="subject" class="form-label fw-bold">Subject</label>
+                                    <input type="text" class="form-control rounded-pill px-3" id="subject" name="subject" placeholder="e.g., More outdoor activities..." required="required"/>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="suggestion" class="form-label fw-bold">Your Suggestion / Feedback</label>
+                                    <textarea class="form-control rounded-3 p-3" id="suggestion" name="suggestion" rows="5" placeholder="Detailed feedback here..." required="required"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary rounded-pill px-5 shadow">🚀 Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
