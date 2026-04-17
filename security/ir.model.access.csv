@@ -17,3 +17,4 @@ access_nursery_student_portal,nursery.student,model_nursery_student,base.group_p
 access_nursery_daily_report_portal,nursery.daily.report,model_nursery_daily_report,base.group_portal,1,0,0,0
 access_nursery_notice_user,nursery.notice,model_nursery_notice,base.group_user,1,1,1,1
 access_nursery_notice_portal,nursery.notice,model_nursery_notice,base.group_portal,1,0,0,0
+access_nursery_parent_login_wizard,nursery.parent.login.wizard,model_nursery_parent_login_wizard,base.group_user,1,1,1,1

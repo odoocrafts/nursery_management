@@ -72,7 +72,7 @@
                             <div class="d-flex flex-wrap gap-2">
                                 <t t-foreach="suggestions" t-as="sugg">
                                     <span t-attf-class="badge rounded-pill #{'bg-success' if sugg.state == 'reviewed' else 'bg-secondary'} p-2 shadow-sm">
-                                        <t t-esc="sugg.name"/> (<t t-esc="dict(sugg.fields_get(allfields=['state'])['state']['selection']).get(sugg.state)"/>)
+                                        <t t-esc="sugg.name"/> (<span t-field="sugg.state"/>)
                                     </span>
                                 </t>
                                 <t t-if="not suggestions">
@@ -98,7 +98,7 @@
                                         <div class="list-group-item p-3">
                                             <h6 class="fw-bold mb-1"><span t-field="notice.name"/></h6>
                                             <small class="text-muted d-block mb-2"><i class="fa fa-calendar me-1"/> <span t-field="notice.date"/></small>
-                                            <div class="text-sm mt-1" t-raw="notice.content"/>
+                                            <div class="text-sm mt-1" t-out="notice.content"/>
                                         </div>
                                     </t>
                                 </div>
@@ -212,7 +212,7 @@
                             
                             <div t-if="report.remarks" class="mb-4">
                                 <h5 class="text-primary"><i class="fa fa-commenting-o me-2"/> Remarks &amp; Activities</h5>
-                                <div class="p-3 bg-light rounded text-dark" t-raw="report.remarks"/>
+                                <div class="p-3 bg-light rounded text-dark" t-out="report.remarks"/>
                             </div>
                             
                             <div t-if="report.activity_image" class="mt-4 text-center">

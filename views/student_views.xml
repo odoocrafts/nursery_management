@@ -5,6 +5,9 @@
         <field name="model">nursery.student</field>
         <field name="arch" type="xml">
             <form string="👶 Student">
+                <header>
+                    <button name="action_open_parent_login_wizard" type="object" string="🔑 Create Parent Login" class="btn-primary"/>
+                </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                         <button name="action_view_reports" type="object" class="oe_stat_button" icon="fa-file-text-o">

@@ -62,6 +62,17 @@ class NurseryStudent(models.Model):
         for student in self:
             student.report_count = self.env['nursery.daily.report'].search_count([('student_id', '=', student.id)])
 
+    def action_open_parent_login_wizard(self):
+        self.ensure_one()
+        return {
+            'name': 'Create Parent Login',
+            'type': 'ir.actions.act_window',
+            'res_model': 'nursery.parent.login.wizard',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {'default_student_id': self.id},
+        }
+
     # --- Smart Button Actions ---
     def action_view_reports(self):
         self.ensure_one()

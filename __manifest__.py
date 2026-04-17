@@ -27,6 +27,7 @@
         'views/suggestion_views.xml',
         'views/portal_templates.xml',
         'views/nursery_menus.xml',
+        'wizard/parent_login_views.xml',
         'wizard/attendance_wizard_views.xml',
         'wizard/attendance_report_wizard_views.xml',
         'report/nursery_reports.xml',
