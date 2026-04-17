@@ -5,11 +5,11 @@
         <field name="name">nursery.checkin.tree</field>
         <field name="model">nursery.checkin</field>
         <field name="arch" type="xml">
-            <tree string="📸 Check-Ins" decoration-success="checkout_time != False">
+            <list string="📸 Check-Ins" decoration-success="checkout_time != False">
                 <field name="student_id"/>
                 <field name="checkin_time"/>
                 <field name="checkout_time"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -46,6 +46,6 @@
     <record id="action_nursery_checkin" model="ir.actions.act_window">
         <field name="name">📸 Check-Ins</field>
         <field name="res_model">nursery.checkin</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

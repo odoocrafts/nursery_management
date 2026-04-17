@@ -4,12 +4,12 @@
         <field name="name">nursery.suggestion.tree</field>
         <field name="model">nursery.suggestion</field>
         <field name="arch" type="xml">
-            <tree string="💡 Suggestions">
+            <list string="💡 Suggestions">
                 <field name="name"/>
                 <field name="partner_id"/>
                 <field name="state"/>
                 <field name="create_date"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -39,6 +39,6 @@
     <record id="action_nursery_suggestion" model="ir.actions.act_window">
         <field name="name">💡 Suggestions</field>
         <field name="res_model">nursery.suggestion</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>
