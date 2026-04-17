@@ -23,6 +23,7 @@
         'views/attendance_views.xml',
         'views/checkin_views.xml',
         'views/event_views.xml',
+        'views/notice_views.xml',
         'views/suggestion_views.xml',
         'views/portal_templates.xml',
         'views/nursery_menus.xml',

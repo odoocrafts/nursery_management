@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_nursery_notice_tree" model="ir.ui.view">
+        <field name="name">nursery.notice.tree</field>
+        <field name="model">nursery.notice</field>
+        <field name="arch" type="xml">
+            <list string="📢 Notices">
+                <field name="date"/>
+                <field name="name"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_nursery_notice_form" model="ir.ui.view">
+        <field name="name">nursery.notice.form</field>
+        <field name="model">nursery.notice</field>
+        <field name="arch" type="xml">
+            <form string="📢 Notice">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Notice Title..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="date"/>
+                        <field name="active" widget="boolean_toggle"/>
+                    </group>
+                    <notebook>
+                        <page string="Content">
+                            <field name="content"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_nursery_notice" model="ir.actions.act_window">
+        <field name="name">📢 Notices</field>
+        <field name="res_model">nursery.notice</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

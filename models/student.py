@@ -4,7 +4,12 @@ from datetime import date
 class NurseryStudent(models.Model):
     _name = 'nursery.student'
     _description = 'Nursery Student'
-    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['portal.mixin', 'mail.thread', 'mail.activity.mixin']
+
+    def _compute_access_url(self):
+        super()._compute_access_url()
+        for student in self:
+            student.access_url = f'/my/students/{student.id}'
 
     name = fields.Char(string='Student Name', required=True, tracking=True)
     dob = fields.Date(string='Date of Birth', required=True)

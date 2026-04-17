@@ -7,4 +7,5 @@ from . import attendance
 from . import checkin
 from . import event
 from . import suggestion
+from . import notice
 

@@ -15,3 +15,5 @@ access_nursery_suggestion_user,nursery.suggestion,model_nursery_suggestion,base.
 access_nursery_suggestion_portal,nursery.suggestion,model_nursery_suggestion,base.group_portal,1,0,1,0
 access_nursery_student_portal,nursery.student,model_nursery_student,base.group_portal,1,0,0,0
 access_nursery_daily_report_portal,nursery.daily.report,model_nursery_daily_report,base.group_portal,1,0,0,0
+access_nursery_notice_user,nursery.notice,model_nursery_notice,base.group_user,1,1,1,1
+access_nursery_notice_portal,nursery.notice,model_nursery_notice,base.group_portal,1,0,0,0
