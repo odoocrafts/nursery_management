@@ -30,6 +30,7 @@
         'wizard/parent_login_views.xml',
         'wizard/attendance_wizard_views.xml',
         'wizard/attendance_report_wizard_views.xml',
+        'wizard/data_import_wizard_views.xml',
         'report/nursery_reports.xml',
         'report/attendance_report_template.xml',
         'report/daily_report_template.xml',
