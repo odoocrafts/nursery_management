@@ -16,7 +16,7 @@
     'data': [
         'security/ir.model.access.csv',
         'security/nursery_security.xml',
-        'views/nursery_menus.xml',
+        'views/nursery_menu_roots.xml',
         'views/nursery_class_views.xml',
         'views/student_views.xml',
         'views/daily_report_views.xml',
@@ -34,6 +34,7 @@
         'report/nursery_reports.xml',
         'report/attendance_report_template.xml',
         'report/daily_report_template.xml',
+        'views/nursery_menus.xml',
     ],
     'demo': [],
     'installable': True,

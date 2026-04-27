@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem id="menu_nursery_root" name="👶 Nursery" sequence="10"/>
-
-    <menuitem id="menu_nursery_student_root" name="🎒 Students" parent="menu_nursery_root" sequence="10"/>
     <menuitem id="menu_nursery_checkin_root" name="📸 Check-In/Out" parent="menu_nursery_root" action="action_nursery_checkin" sequence="15"/>
-    <menuitem id="menu_nursery_daily_report_root" name="📝 Reports" parent="menu_nursery_root" sequence="20"/>
     <menuitem id="menu_nursery_events_root" name="🎈 Events" parent="menu_nursery_root" action="action_nursery_event" sequence="25"/>
     <menuitem id="menu_nursery_notices_root" name="📢 Notices" parent="menu_nursery_root" action="action_nursery_notice" sequence="26"/>
     <menuitem id="menu_nursery_suggestions_root" name="💡 Suggestions" parent="menu_nursery_root" action="action_nursery_suggestion" sequence="27"/>
-    <menuitem id="menu_nursery_configuration_root" name="⚙️ Configuration" parent="menu_nursery_root" sequence="30"/>
     <menuitem id="menu_nursery_data_import" name="Data Import" parent="menu_nursery_configuration_root" action="action_nursery_data_import_wizard" sequence="50"/>
 </odoo>
