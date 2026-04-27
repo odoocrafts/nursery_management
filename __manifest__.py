@@ -1,5 +1,5 @@
 {
-    'name': 'Nursery Management',
+    'name': 'My Nursery',
     'version': '18.0.1.0.0',
     'summary': 'Manage Nursery Students, Classes, and Daily Reports',
     'description': """
