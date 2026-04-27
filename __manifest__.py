@@ -16,6 +16,7 @@
     'data': [
         'security/ir.model.access.csv',
         'security/nursery_security.xml',
+        'views/nursery_menus.xml',
         'views/nursery_class_views.xml',
         'views/student_views.xml',
         'views/daily_report_views.xml',
@@ -26,7 +27,6 @@
         'views/notice_views.xml',
         'views/suggestion_views.xml',
         'views/portal_templates.xml',
-        'views/nursery_menus.xml',
         'wizard/parent_login_views.xml',
         'wizard/attendance_wizard_views.xml',
         'wizard/attendance_report_wizard_views.xml',
