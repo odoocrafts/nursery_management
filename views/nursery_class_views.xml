@@ -10,6 +10,7 @@
                         <group string="Class Info">
                             <field name="name"/>
                             <field name="code"/>
+                            <field name="teacher_id"/>
                         </group>
                         <group string="Fees">
                             <field name="monthly_fee" widget="monetary"/>
@@ -45,6 +46,7 @@
             <list string="Classes">
                 <field name="name"/>
                 <field name="code"/>
+                <field name="teacher_id"/>
             </list>
         </field>
     </record>

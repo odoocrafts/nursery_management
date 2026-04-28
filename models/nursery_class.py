@@ -8,6 +8,7 @@ class NurseryClass(models.Model):
     code = fields.Char(string='Code')
     description = fields.Text(string='Description')
     monthly_fee = fields.Float(string='Monthly Fee', required=True, default=0.0)
+    teacher_id = fields.Many2one('res.users', string='Teacher')
 
     student_ids = fields.One2many('nursery.student', 'class_id', string='Students')
     student_count = fields.Integer(string='Total Students', compute='_compute_statistics')
