@@ -14,8 +14,8 @@
     'website': 'https://www.example.com',
     'depends': ['base', 'mail', 'portal'],
     'data': [
-        'security/ir.model.access.csv',
         'security/nursery_security.xml',
+        'security/ir.model.access.csv',
         'views/nursery_menu_roots.xml',
         'views/nursery_class_views.xml',
         'views/student_views.xml',
