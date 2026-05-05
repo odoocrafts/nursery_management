@@ -10,6 +10,7 @@ export class NurseryDashboard extends Component {
         this.action = useService("action");
         this.state = useState({
             stats: {
+                company_name: '',
                 total_students: 0,
                 total_present: 0,
                 average_mood: 'N/A',

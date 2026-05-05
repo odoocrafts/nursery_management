@@ -39,7 +39,10 @@ class NurseryDashboard(models.AbstractModel):
             'venue': e.venue or 'TBA'
         } for e in events]
         
+        company_name = self.env.company.name
+
         return {
+            'company_name': company_name,
             'total_students': total_students,
             'total_present': total_present,
             'average_mood': average_mood.capitalize() if average_mood != 'N/A' else average_mood,

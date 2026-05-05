@@ -3,7 +3,7 @@
     <t t-name="nursery_management.Dashboard" owl="1">
         <div class="nursery-dashboard-container o_action_manager">
             <div class="nursery-header">
-                <h1>🎈 Welcome to My Nursery! 🎈</h1>
+                <h1>🎈 Welcome to <t t-esc="state.stats.company_name || 'My Nursery'"/>! 🎈</h1>
                 <p>Here's what's happening today in your colorful world.</p>
             </div>
             
