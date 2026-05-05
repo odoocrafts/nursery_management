@@ -8,9 +8,30 @@
             </div>
             
             <div class="container-fluid py-4">
+                <!-- Quick Access Buttons -->
+                <div class="row mb-4">
+                    <div class="col-12 d-flex flex-wrap justify-content-center gap-3 nursery-quick-actions">
+                        <button class="btn nursery-btn-action action-checkin shadow-sm" t-on-click="openCheckin">
+                            <i class="fa fa-camera mr-2"></i> Check In/Out
+                        </button>
+                        <button class="btn nursery-btn-action action-attendance shadow-sm" t-on-click="openAttendanceReport">
+                            <i class="fa fa-calendar-check-o mr-2"></i> Attendance
+                        </button>
+                        <button class="btn nursery-btn-action action-events shadow-sm" t-on-click="openEvents">
+                            <i class="fa fa-star mr-2"></i> Events
+                        </button>
+                        <button class="btn nursery-btn-action action-notices shadow-sm" t-on-click="openNotices">
+                            <i class="fa fa-bullhorn mr-2"></i> Notices
+                        </button>
+                        <button class="btn nursery-btn-action action-suggestions shadow-sm" t-on-click="openSuggestions">
+                            <i class="fa fa-lightbulb-o mr-2"></i> Suggestions
+                        </button>
+                    </div>
+                </div>
+
                 <div class="row nursery-kpi-row">
                     <!-- Total Strength vs Present -->
-                    <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="col-12 col-md-4 mb-4">
                         <div class="nursery-card card-strength shadow-sm" t-on-click="openStudents">
                             <div class="card-icon">
                                 <i class="fa fa-users"></i>
@@ -27,7 +48,7 @@
                     </div>
 
                     <!-- Average Mood -->
-                    <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="col-12 col-md-4 mb-4">
                         <div class="nursery-card card-mood shadow-sm">
                             <div class="card-icon">
                                 <i class="fa fa-smile-o"></i>
@@ -40,7 +61,7 @@
                     </div>
 
                     <!-- Fee Received -->
-                    <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="col-12 col-md-4 mb-4">
                         <div class="nursery-card card-fees shadow-sm" t-on-click="openFees">
                             <div class="card-icon">
                                 <i class="fa fa-money"></i>

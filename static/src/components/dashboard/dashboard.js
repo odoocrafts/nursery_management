@@ -47,6 +47,12 @@ export class NurseryDashboard extends Component {
             views: [[false, "list"], [false, "form"]],
         });
     }
+
+    openCheckin() { this.action.doAction("nursery_management.action_nursery_checkin"); }
+    openAttendanceReport() { this.action.doAction("nursery_management.action_nursery_attendance_report_wizard"); }
+    openEvents() { this.action.doAction("nursery_management.action_nursery_event"); }
+    openNotices() { this.action.doAction("nursery_management.action_nursery_notice"); }
+    openSuggestions() { this.action.doAction("nursery_management.action_nursery_suggestion"); }
 }
 
 NurseryDashboard.template = "nursery_management.Dashboard";
