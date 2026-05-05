@@ -1,6 +1,8 @@
 .nursery-dashboard-container {
     background-color: #f0f8ff; /* Alice Blue */
     min-height: 100vh;
+    height: 100%;
+    overflow-y: auto;
     font-family: 'Comic Sans MS', 'Chalkboard SE', 'Nunito', sans-serif;
     padding: 20px;
 
