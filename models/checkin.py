@@ -19,3 +19,13 @@ class NurseryCheckin(models.Model):
                 record.name = f"{record.student_id.name} - {record.checkin_time.strftime('%Y-%m-%d')}"
             else:
                 record.name = "New Check-In"
+
+    def action_confirm(self):
+        self.ensure_one()
+        return {
+            'effect': {
+                'fadeout': 'fast',
+                'message': 'Confirmed Successfully',
+                'type': 'rainbow_man',
+            }
+        }
