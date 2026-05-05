@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="nursery_management.Dashboard" owl="1">
+        <div class="nursery-dashboard-container o_action_manager">
+            <div class="nursery-header">
+                <h1>🎈 Welcome to My Nursery! 🎈</h1>
+                <p>Here's what's happening today in your colorful world.</p>
+            </div>
+            
+            <div class="container-fluid py-4">
+                <div class="row nursery-kpi-row">
+                    <!-- Total Strength vs Present -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="nursery-card card-strength shadow-sm" t-on-click="openStudents">
+                            <div class="card-icon">
+                                <i class="fa fa-users"></i>
+                            </div>
+                            <div class="card-details">
+                                <h3 class="card-title">Strength vs Present</h3>
+                                <h2 class="card-value"><t t-esc="state.stats.total_present"/> / <t t-esc="state.stats.total_students"/></h2>
+                                <div class="progress mt-2" style="height: 10px; border-radius: 5px;">
+                                    <t t-set="percent" t-value="state.stats.total_students ? (state.stats.total_present / state.stats.total_students * 100) : 0"/>
+                                    <div class="progress-bar bg-success" role="progressbar" t-att-style="'width: ' + percent + '%;'" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Average Mood -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="nursery-card card-mood shadow-sm">
+                            <div class="card-icon">
+                                <i class="fa fa-smile-o"></i>
+                            </div>
+                            <div class="card-details">
+                                <h3 class="card-title">Average Mood</h3>
+                                <h2 class="card-value"><t t-esc="state.stats.average_mood"/></h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fee Received -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <div class="nursery-card card-fees shadow-sm" t-on-click="openFees">
+                            <div class="card-icon">
+                                <i class="fa fa-money"></i>
+                            </div>
+                            <div class="card-details">
+                                <h3 class="card-title">Fees Received</h3>
+                                <h2 class="card-value">$<t t-esc="state.stats.fee_received"/></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="nursery-events-panel shadow-sm p-4">
+                            <h2>📅 Upcoming Fun Events</h2>
+                            <div class="events-list mt-3">
+                                <t t-if="state.stats.upcoming_events.length > 0">
+                                    <t t-foreach="state.stats.upcoming_events" t-as="event" t-key="event.id">
+                                        <div class="event-item p-3 mb-2">
+                                            <div class="event-icon">
+                                                <i class="fa fa-star text-warning"></i>
+                                            </div>
+                                            <div class="event-info">
+                                                <h4><t t-esc="event.name"/></h4>
+                                                <span class="event-meta"><i class="fa fa-clock-o mr-1"></i> <t t-esc="event.date"/> | <i class="fa fa-map-marker mr-1"></i> <t t-esc="event.venue"/></span>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </t>
+                                <t t-else="">
+                                    <div class="text-center text-muted p-4">
+                                        <i class="fa fa-bed fa-3x mb-3"></i>
+                                        <p>No upcoming events right now. Time for a nap! 😴</p>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

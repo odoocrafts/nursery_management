@@ -8,4 +8,4 @@ from . import checkin
 from . import event
 from . import suggestion
 from . import notice
-
+from . import dashboard

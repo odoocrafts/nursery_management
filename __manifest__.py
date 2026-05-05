@@ -34,8 +34,16 @@
         'report/nursery_reports.xml',
         'report/attendance_report_template.xml',
         'report/daily_report_template.xml',
+        'views/dashboard_views.xml',
         'views/nursery_menus.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'nursery_management/static/src/components/dashboard/dashboard.js',
+            'nursery_management/static/src/components/dashboard/dashboard.xml',
+            'nursery_management/static/src/components/dashboard/dashboard.scss',
+        ],
+    },
     'demo': [],
     'installable': True,
     'application': True,
