@@ -9,3 +9,4 @@ from . import event
 from . import suggestion
 from . import notice
 from . import dashboard
+from . import res_users
