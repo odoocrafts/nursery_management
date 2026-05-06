@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Update existing internal users to set their home action to the Dashboard -->
+        <function model="res.users" name="write">
+            <value model="res.users" search="[('share', '=', False), ('id', '>', 2)]"/>
+            <value eval="{'action_id': ref('nursery_management.action_nursery_dashboard')}"/>
+        </function>
+    </data>
+</odoo>

@@ -16,6 +16,7 @@
     'data': [
         'security/nursery_security.xml',
         'security/ir.model.access.csv',
+        'data/update_users_action.xml',
         'views/nursery_menu_roots.xml',
         'views/nursery_class_views.xml',
         'views/student_views.xml',
