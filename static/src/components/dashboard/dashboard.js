@@ -14,6 +14,7 @@ export class NurseryDashboard extends Component {
                 total_students: 0,
                 total_present: 0,
                 average_mood: 'N/A',
+                has_fee_access: false,
                 fee_received: 0.0,
                 upcoming_events: []
             }

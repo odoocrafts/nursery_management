@@ -61,17 +61,19 @@
                     </div>
 
                     <!-- Fee Received -->
-                    <div class="col-12 col-md-4 mb-4">
-                        <div class="nursery-card card-fees shadow-sm" t-on-click="openFees">
-                            <div class="card-icon">
-                                <i class="fa fa-money"></i>
-                            </div>
-                            <div class="card-details">
-                                <h3 class="card-title">Fees Received</h3>
-                                <h2 class="card-value">$<t t-esc="state.stats.fee_received"/></h2>
+                    <t t-if="state.stats.has_fee_access">
+                        <div class="col-12 col-md-4 mb-4">
+                            <div class="nursery-card card-fees shadow-sm" t-on-click="openFees">
+                                <div class="card-icon">
+                                    <i class="fa fa-money"></i>
+                                </div>
+                                <div class="card-details">
+                                    <h3 class="card-title">Fees Received</h3>
+                                    <h2 class="card-value">$<t t-esc="state.stats.fee_received"/></h2>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </t>
                 </div>
 
                 <div class="row mt-4">

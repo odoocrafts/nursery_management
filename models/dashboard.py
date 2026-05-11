@@ -23,8 +23,12 @@ class NurseryDashboard(models.AbstractModel):
         average_mood = max(set(moods), key=moods.count) if moods else 'N/A'
         
         # 4. Total Fees Received (Posted)
-        posted_fees = self.env['nursery.fee'].search([('state', '=', 'posted')])
-        fee_received = sum(posted_fees.mapped('amount'))
+        has_fee_access = self.env['nursery.fee'].check_access_rights('read', raise_exception=False)
+        if has_fee_access:
+            posted_fees = self.env['nursery.fee'].search([('state', '=', 'posted')])
+            fee_received = sum(posted_fees.mapped('amount'))
+        else:
+            fee_received = 0
         
         # 5. Upcoming Events
         events = self.env['nursery.event'].search(
@@ -46,6 +50,7 @@ class NurseryDashboard(models.AbstractModel):
             'total_students': total_students,
             'total_present': total_present,
             'average_mood': average_mood.capitalize() if average_mood != 'N/A' else average_mood,
+            'has_fee_access': has_fee_access,
             'fee_received': fee_received,
             'upcoming_events': upcoming_events
         }
