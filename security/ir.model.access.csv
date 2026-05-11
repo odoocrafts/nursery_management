@@ -30,3 +30,4 @@ access_nursery_attendance_wizard_line_teacher,nursery.attendance.wizard.line.tea
 access_nursery_attendance_report_wizard_teacher,nursery.attendance.report.wizard.teacher,model_nursery_attendance_report_wizard,nursery_management.group_nursery_teacher,1,0,0,0
 access_nursery_checkin_teacher,nursery.checkin.teacher,model_nursery_checkin,nursery_management.group_nursery_teacher,1,1,1,0
 access_nursery_event_teacher,nursery.event.teacher,model_nursery_event,nursery_management.group_nursery_teacher,1,0,0,0
+access_nursery_fee_type_teacher,nursery.fee.type.teacher,model_nursery_fee_type,nursery_management.group_nursery_teacher,1,0,0,0
