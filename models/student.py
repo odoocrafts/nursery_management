@@ -36,11 +36,18 @@ class NurseryStudent(models.Model):
 
     @api.depends('fee_ids.amount', 'fee_ids.state', 'admission_date', 'class_id.monthly_fee')
     def _compute_dues(self):
+        has_fee_access = self.env['nursery.fee'].check_access_rights('read', raise_exception=False)
+        
         # Fetch Admission Fee from Fee Type
         admission_fee_type = self.env['nursery.fee.type'].search([('is_admission', '=', True)], limit=1)
         admission_fee = admission_fee_type.amount if admission_fee_type else 0.0
         
         for student in self:
+            if not has_fee_access:
+                student.total_paid = 0.0
+                student.total_due = 0.0
+                continue
+
             # Calculate Total Paid
             student.total_paid = sum(student.fee_ids.filtered(lambda f: f.state == 'posted').mapped('amount'))
             

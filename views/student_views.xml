@@ -22,7 +22,7 @@
                                 <span class="o_stat_text">Attendance</span>
                             </div>
                         </button>
-                        <button name="action_view_fees" type="object" class="oe_stat_button" icon="fa-money">
+                        <button name="action_view_fees" type="object" class="oe_stat_button" icon="fa-money" groups="nursery_management.group_nursery_admin">
                             <div class="o_stat_info">
                                 <span class="o_stat_value"><field name="total_due"/></span>
                                 <span class="o_stat_text">Due</span>
