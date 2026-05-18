@@ -60,4 +60,7 @@ class NurseryDailyReport(models.Model):
     remarks = fields.Html(string='Learning/Activity Remarks')
     
     # Media
-    activity_image = fields.Image(string='Activity Photo')
+    activity_image = fields.Image(string='Activity Photo 1', max_width=1024, max_height=1024)
+    activity_image_2 = fields.Image(string='Activity Photo 2', max_width=1024, max_height=1024)
+    activity_image_3 = fields.Image(string='Activity Photo 3', max_width=1024, max_height=1024)
+    activity_image_4 = fields.Image(string='Activity Photo 4', max_width=1024, max_height=1024)

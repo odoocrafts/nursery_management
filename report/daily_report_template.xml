@@ -75,12 +75,16 @@
                                 </td>
                             </tr>
 
-                            <!-- Activity Photo -->
-                            <tr t-if="o.activity_image" style="page-break-inside: avoid;">
+                            <!-- Activity Photos -->
+                            <tr t-if="o.activity_image or o.activity_image_2 or o.activity_image_3 or o.activity_image_4" style="page-break-inside: avoid;">
                                 <td colspan="2" style="padding: 0;">
-                                    <div class="section-header" style="border-bottom: 1px solid black;">Activity Photo</div>
+                                    <div class="section-header" style="border-bottom: 1px solid black;">Activity Photos</div>
                                     <div class="content-cell" style="padding: 5px;">
-                                        <img t-att-src="image_data_uri(o.activity_image)" style="max-height: 200px; max-width: 100%;"/>
+                                        <img t-if="o.activity_image" t-att-src="image_data_uri(o.activity_image)" style="max-height: 200px; max-width: 45%; margin: 5px;"/>
+                                        <img t-if="o.activity_image_2" t-att-src="image_data_uri(o.activity_image_2)" style="max-height: 200px; max-width: 45%; margin: 5px;"/>
+                                        <br t-if="(o.activity_image or o.activity_image_2) and (o.activity_image_3 or o.activity_image_4)"/>
+                                        <img t-if="o.activity_image_3" t-att-src="image_data_uri(o.activity_image_3)" style="max-height: 200px; max-width: 45%; margin: 5px;"/>
+                                        <img t-if="o.activity_image_4" t-att-src="image_data_uri(o.activity_image_4)" style="max-height: 200px; max-width: 45%; margin: 5px;"/>
                                     </div>
                                 </td>
                             </tr>
