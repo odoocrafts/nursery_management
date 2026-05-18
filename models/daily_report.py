@@ -4,6 +4,7 @@ class NurseryDailyReport(models.Model):
     _name = 'nursery.daily.report'
     _description = 'Daily Parent Communication Report'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    _order = 'date desc, id desc'
 
     student_id = fields.Many2one('nursery.student', string='Student', required=True)
     date = fields.Date(string='Date', default=fields.Date.context_today, required=True)
